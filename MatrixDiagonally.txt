@@ -1,0 +1,49 @@
+
+#include <iostream>
+#include<bits/stdc++.h>
+#define ss2(a,b) scanf("%d %d", &a, &b)
+#define ss1(a) scanf("%d", &a)
+#define loop(it,start,end,inc) for(int it=start;it<end;it+=inc)
+#define pp(a) printf("%d ", a)
+
+using namespace std;
+
+
+int printDiagonally(int** a,int r, int c){
+    int i,j,k=0;
+    loop(line,0,r+c-1,1){
+        //upper Diagonals
+        if (line<r){
+            i=line;
+            j=0;
+        }
+        //lower Diagonals
+        else{
+            i=r-1;
+            j=++k;
+        }
+        while(i>=0 && j<c){
+            pp(a[i][j]);
+            i-=1;
+            j+=1;
+        }
+        printf("\n");
+        
+        
+    }
+}
+
+int main()
+{   int n,m;
+    ss2(n,m);
+    int** a=new int*[n];
+    loop(i,0,n,1) a[i]=new int[m];
+    
+    loop(i,0,n,1) loop(j,0,m,1) ss1(a[i][j]);
+    
+    printDiagonally(a,n,m);
+    return 0;
+}
+
+
+
